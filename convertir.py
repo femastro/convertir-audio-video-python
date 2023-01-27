@@ -15,8 +15,9 @@ class bcolors:
 
 
 def my_funcion(data):
-    os.system(data)
-    os.system('clear')
+    data.on()
+    # valor = os.system(data)
+    # os.system('clear')
     print('\n')
     print('###########################')
     print('##'+bcolors.YELLOW+'     FIN de PROCESO    '+bcolors.GREEN+'##')
@@ -25,7 +26,7 @@ def my_funcion(data):
     print('Espere ...')
     print('')
     time.sleep(2)
-    init()
+    # init()
 
 
 def downvideo():
@@ -34,12 +35,16 @@ def downvideo():
     print(bcolors.YELLOW+'DESCARGAR VIDEO COMPLETO'+bcolors.GREEN)
     print('========================')
     print('')
+    nameVideo = input(
+        bcolors.CYAN+"Ingrese nombre del Video de Youtube " + bcolors.GREEN+" \n \n -> ")
+    print('')
     url = input(bcolors.CYAN+"Ingrese URL del Video de Youtube ( "+bcolors.PURPLE +
                 "0 para Volver al Menú "+bcolors.CYAN+")"+bcolors.GREEN+" \n \n -> ")
     if len(url) < 3:
         init()
     else:
-        video = "youtube-dl --format mp4 " + "'" + url + "'"
+        script = "youtube-dl --format mp4 -o /home/fernando/Descargas/mp4/"
+        video = script + nameVideo + ".mp4 " + url
     my_funcion(video)
 
 
@@ -49,13 +54,17 @@ def downaudio():
     print(bcolors.YELLOW+'DESCARGAR AUDIO de un VIDEO'+bcolors.RESET)
     print('===========================')
     print('')
+    nameAudio = input(
+        bcolors.CYAN+"Ingrese nombre del Video de Youtube " + bcolors.GREEN+" \n \n -> ")
+    print('')
     url = input(bcolors.CYAN+"Ingrese URL del Video de Youtube ( "+bcolors.PURPLE +
                 "0 para Volver al Menú "+bcolors.CYAN+")"+bcolors.GREEN+" \n \n -> ")
     if len(url) < 3:
         init()
     else:
-        video = "youtube-dl -x --audio-format mp3 " + "'" + url + "'"
-    my_funcion(video)
+        script = "youtube-dl -x --audio-format mp3 -o /home/fernando/Descargas/mp3/"
+        audio = script + nameAudio + ".mp3 " + url
+    my_funcion(audio)
 
 
 def init():
