@@ -15,9 +15,8 @@ class bcolors:
 
 
 def my_funcion(data):
-    data.on()
-    # valor = os.system(data)
-    # os.system('clear')
+    os.system(data)
+    os.system('clear')
     print('\n')
     print('###########################')
     print('##'+bcolors.YELLOW+'     FIN de PROCESO    '+bcolors.GREEN+'##')
